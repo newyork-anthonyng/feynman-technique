@@ -3,15 +3,16 @@
 WebSockets allow a client and server to talk with each other.
 
 HTTP requests close their connection after a server sends a response.
-(INCLUDE DIAGRAM)
+![diagram of client talking to server with http requests](./http.jpg)
 
 When I was in college, there was a website you would go on to get your grades. I would keep refreshing my browser, waiting for my grades to appear. This is an example of polling.
 (INCLUDE DIAGRAM)
+![diagram of client talking to server with polling](./polling.jpg)
 
 We want to know when something on the server has changed. With traditional HTTP requests, the server can only respond to someone's request. The server can't communicate on its own.
 
 WebSockets sets up a persistent connection between a client and a server. This allow servers to send information without needing a request.
-(INCLUDE DIAGRAM)
+![diagram of client talking to server with websockets](./websockets.jpg)
 
 
 ## Considerations
