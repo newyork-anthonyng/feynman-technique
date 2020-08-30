@@ -1,25 +1,26 @@
 # WebSockets
 
-WebSockets allow a client and server to talk with each other.
+WebSockets are a way for 2 computers to talk with each other. To see why WebSockets are useful, let's first look at HTTP requests.
 
-HTTP requests close their connection after a server sends a response.
-![diagram of client talking to server with http requests](./http.jpg)
+HTTP requests are a common way for computers to talk with each other. One computer, which we'll call the client, requests information from the other computer, which we'll call the server. The server responds back to the client with information. We call this the request/response cycle.
 
-When I was in college, there was a website you would go on to get your grades. I would keep refreshing my browser, waiting for my grades to appear. This is an example of polling.
-![diagram of client talking to server with polling](./polling.jpg)
+<img src="./http.jpg" width="500">
 
-We want to know when something on the server has changed. With traditional HTTP requests, the server can only respond to someone's request. The server can't communicate on its own.
+Notice how the server can only respond to requests from the client. If the server has something interesting to tell the client, it has to wait for the client to ask them about it. Consequently, if the client wants to know when the server has an interesting update, the client needs to keep making requests to the server. We call this polling.
 
-WebSockets sets up a persistent connection between a client and a server. This allow servers to send information without needing a request.
-![diagram of client talking to server with websockets](./websockets.jpg)
+<img src="./polling.jpg" width="500">
 
-## Considerations
-Should you use WebSockets for your project? It depends.
-* How frequent are your events?
-  * If they're very frequent, like a stock market application, you might want WebSockets
-* How long is the connection?
- * If the connection if very long, like a chat application, you might want WebSockets
-* How quickly does the UI need to display the information?
- * If we need quick feedback, like a stock market application, you might want WebSockets
-* Should we cache the data?
- * If you need to cache the data, like a text-only webpage, you might *not* want WebSockets
+Polling is a work-around for a fundamental problem with HTTP requests; servers can't send information to the client unless the client requests it. WebSockets solve this.
+
+WebSockets creates a permanent connection between the client and server. The client can send messages to the server through this connection. More importantly, the server can send messages to the client whenever it wants. It doesn't even need a request.
+
+<img src="./websockets.jpg" width="500">
+
+What are some use cases where you want to use WebSockets rather than HTTP requests?
+
+* Does your application have messages that are frequently sent?
+> ie: A stock market application may need to send multiple events per second for stock prices.
+
+* Does your application need to maintain a connection for a long time?
+> ie: A chat application needs to stay connected to send and receive messages. 
+
