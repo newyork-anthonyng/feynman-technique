@@ -2,7 +2,7 @@
 
 WebSockets are a way for 2 computers to talk with each other. To see why WebSockets are useful, let's first look at HTTP requests.
 
-HTTP requests are a common way for computers to talk with each other. One computer, which we'll call the client, requests information from the other computer, which we'll call the server. The server responds back to the client with information. We call this the request/response cycle.
+HTTP requests are a common way for computers to talk with each other. One computer, which we'll call the *client*, **requests** information from the other computer, which we'll call the *server*. The server **responds** back to the client with information. We call this the **request/response cycle**.
 
 <img src="./http.jpg" width="500">
 
